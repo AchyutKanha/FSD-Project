@@ -1,0 +1,46 @@
+{
+  "name": "emp-server",
+  "version": "1.0.0",
+  "description": "Examination Management Portal — Express + PostgreSQL API",
+  "main": "src/server.js",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "worker": "node src/jobs/worker.js",
+    "db:migrate": "node db/migrate.js",
+    "db:reset": "node db/migrate.js --reset",
+    "db:seed": "node db/seed.js",
+    "create-admin": "node scripts/create-admin.js",
+    "job": "node scripts/run-job.js",
+    "race": "node scripts/race-test.js",
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bullmq": "^5.34.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "helmet": "^8.0.0",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.16",
+    "pg": "^8.13.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000,
+    "globalSetup": "./tests/globalSetup.js"
+  }
+}
